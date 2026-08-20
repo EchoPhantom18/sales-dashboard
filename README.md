@@ -1,75 +1,109 @@
-# Sales Dashboard
+# 🚀 SalesSphere - Executive Sales Dashboard
 
-A fully functional sales dashboard with React frontend, Express backend, and Supabase database — styled after a modern hotel management dashboard UI.
+A modern, high-performance executive sales dashboard built with **React 18, Vite, TypeScript, Tailwind CSS, Node.js Express**, and **Supabase Realtime PostgreSQL**.
 
-## Stack
+🔗 **Live Production Site**: [https://sales-dashboard-b0eu.onrender.com/](https://sales-dashboard-b0eu.onrender.com/)
 
-- **Frontend:** React 18 + Vite + TypeScript + Tailwind CSS + Recharts
-- **Backend:** Express.js REST API
-- **Database:** Supabase (PostgreSQL)
+---
 
-## Quick Start
+## 🌟 Key Features
 
-### 1. Set up Supabase tables
+- 🌐 **Live Production Link**: [sales-dashboard-b0eu.onrender.com](https://sales-dashboard-b0eu.onrender.com/)
+- 📅 **Interactive Calendar & Date Filtering**: Filter dashboard metrics and charts by a **12-Month Grid** or a **Specific Single Date** (e.g. `2026-05-25`).
+- ⚡ **Supabase Realtime Database Sync**: Connected to Supabase Postgres with active WebSocket listeners for live order updates.
+- 📊 **Dynamic Sales Analytics**: Real-time KPI metrics, weekly volume bar charts, lead conversion rates, and channel share pie charts.
+- 📄 **Dynamic CSV Reports & Analytics Export**: Export live transaction logs and sales reports with UTF-8 BOM encoding.
+- 💬 **Team Chat & Meeting Scheduler**: Built-in team discussion popover, live notification bell, and Google Meet sync modal.
+- ⚙️ **Realtime Latency Test & Regional Settings**: Live DB connection speed test, currency localization (`INR`, `USD`, `EUR`, `GBP`), and custom date formats.
 
-Open your [Supabase SQL Editor](https://supabase.com/dashboard) and run:
+---
 
-1. `supabase/schema.sql` — creates all tables and RLS policies
-2. `supabase/seed.sql` — inserts sample sales data
+## 🛠️ Tech Stack
 
-Or seed via the API script after creating tables:
+- **Frontend**: React 18 + Vite + TypeScript + Tailwind CSS + Lucide Icons + Recharts
+- **Backend API**: Express.js (Node.js REST API with CORS configured)
+- **Database & Realtime**: Supabase (PostgreSQL + Realtime WebSockets)
+- **Deployment**: Render.com & Vercel
 
-```bash
-npm run setup-db --prefix server
+---
+
+## 📂 Project Structure
+
+```text
+sales-dashboard/
+├── frontend/             # React + Vite + TypeScript Frontend Application
+│   ├── src/
+│   │   ├── components/  # Layout, Header, Sidebar, Stat Cards, Views
+│   │   ├── lib/         # Supabase client & export utilities
+│   │   └── types/       # TypeScript Interfaces
+│   ├── package.json
+│   └── vercel.json
+├── backend/              # Node.js + Express API Server
+│   ├── index.js          # Express endpoints & CORS configuration
+│   └── package.json
+├── supabase/             # Database Schemas & Seed Data
+│   ├── schema.sql
+│   └── seed.sql
+└── README.md
 ```
 
-### 2. Install dependencies
+---
+
+## 🚀 Quick Start (Local Development)
+
+### 1. Install Dependencies
 
 ```bash
 npm install
-npm install --prefix client
-npm install --prefix server
+npm install --prefix frontend
+npm install --prefix backend
 ```
 
-### 3. Run the app
+### 2. Run Application Locally
 
 ```bash
 npm run dev
 ```
 
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:3001
+- **Frontend Application**: `http://localhost:5173/`
+- **Express Backend API**: `http://localhost:3001/api/dashboard`
+- **API Date Filter Test**: `http://localhost:3001/api/dashboard?date=2026-05-25`
 
-## Environment Variables
+---
 
-The `.env` file at the project root contains:
-
-```
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_URL=your_supabase_url
-SUPABASE_ANON_KEY=your_anon_key
-PORT=3001
-```
-
-## API Endpoints
+## 📡 API Endpoints & Documentation
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/dashboard` | All dashboard data |
-| GET | `/api/sales` | List sales (optional `?search=` and `?status=`) |
-| POST | `/api/sales` | Create a new sale |
-| GET | `/api/search?q=` | Search customers and deals |
-| PATCH | `/api/tasks/:id` | Toggle task completion |
-| POST | `/api/tasks` | Create a new task |
+| **GET** | `/api/health` | API Health & Service Status check |
+| **GET** | `/api/dashboard` | Main dashboard payload (Baseline / All-time stats) |
+| **GET** | `/api/dashboard?date=YYYY-MM-DD` | Date-filtered sales metrics & analytics payload |
 
-## Features
+### Example API Response (`GET /api/dashboard?date=2026-05-25`):
 
-- Real-time metrics: New Orders, Leads Converted, Deals Closed, Revenue
-- Sales Performance area chart (weekly)
-- Sales by Channel donut chart
-- Revenue overview with channel progress bars
-- Weekly sales bar chart with projected data
-- Recent deals table with avatars
-- Sales calendar with category tabs
-- Interactive task list with checkbox toggle
+```json
+{
+  "selected_date": "2026-05-25",
+  "metrics": {
+    "id": "1",
+    "total_earning": "18.45K",
+    "avg_earning": "18.45K",
+    "conversation_rate": "84.20%",
+    "conversation_change": "+15.4% vs daily average",
+    "new_orders": 412,
+    "revenue": 18450.00
+  },
+  "performance": [
+    { "id": "1", "day_label": "Sun", "purple_bar": 22, "green_bar": 18 },
+    { "id": "2", "day_label": "Mon", "purple_bar": 38, "green_bar": 28 }
+  ]
+}
+```
+
+---
+
+## 🌐 Production Deployment (Render)
+
+- **Live URL**: [https://sales-dashboard-b0eu.onrender.com/](https://sales-dashboard-b0eu.onrender.com/)
+- **Backend Service Root Directory**: `backend`
+- **Frontend Static Site Root Directory**: `frontend`
