@@ -8,7 +8,6 @@ A modern, high-performance executive sales dashboard built with **React 18, Vite
 
 ## 🌟 Key Features
 
-- 🌐 **Live Production Link**: [sales-dashboard-b0eu.onrender.com](https://sales-dashboard-b0eu.onrender.com/)
 - 📅 **Interactive Calendar & Date Filtering**: Filter dashboard metrics and charts by a **12-Month Grid** or a **Specific Single Date** (e.g. `2026-05-25`).
 - ⚡ **Supabase Realtime Database Sync**: Connected to Supabase Postgres with active WebSocket listeners for live order updates.
 - 📊 **Dynamic Sales Analytics**: Real-time KPI metrics, weekly volume bar charts, lead conversion rates, and channel share pie charts.
